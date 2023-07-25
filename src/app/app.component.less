@@ -1,0 +1,93 @@
+@green: #54e6af;
+@dark-gray: #2c344b;
+@dark-blue: #121725;
+@white: #ffffff;
+@neutral-gray: #5a668a;
+@light-gray: #c2cbe5;
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+
+  background: url(../assets/mobile/image-host.jpg) @dark-blue no-repeat;
+  background-blend-mode: multiply;
+  background-size: cover;
+
+  @media (min-width: 768px) {
+    background: url(../assets/tablet/image-host.jpg) no-repeat;
+  }
+
+  & > img {
+    margin: 3.87rem 0 3.56rem;
+  }
+
+  .text-area {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1.5rem;
+
+    h1 {
+      color: @green;
+      font-size: 1.625rem;
+      text-transform: uppercase;
+      line-height: 146.154%;
+
+      span {
+        color: @white;
+      }
+    }
+
+    p {
+      color: @light-gray;
+      font-size: 15px;
+      line-height: 1.5625rem;
+    }
+  }
+
+  .logos-area {
+    padding: 3rem 1.87rem;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 23px;
+
+    & > img {
+      max-height: 15px;
+    }
+  }
+
+  .input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1.5rem;
+
+    input {
+      font-family: "Chivo", sans-serif;
+      font-size: 14px;
+      line-height: 28px;
+      font-weight: 400;
+
+      background-color: @dark-gray;
+      color: @white;
+      border-radius: 28px;
+      padding: 9px 32px;
+      border: none;
+    }
+
+    button {
+      background-color: @green;
+      font-family: "Chivo", sans-serif;
+      border: none;
+      padding: 9px 0;
+      line-height: 28px;
+      border-radius: 28px;
+    }
+  }
+}
