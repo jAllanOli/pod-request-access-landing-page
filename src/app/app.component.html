@@ -1,21 +1,43 @@
 <main>
   <img src="../assets/desktop/logo.svg" alt="" />
-  <div class="text-area">
-    <h1>Publish your podcasts <span>everywhere.</span></h1>
-    <p>
-      Upload your audio to Pod with a single click. We’ll then distribute your
-      podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket Casts and
-      more!
-    </p>
-  </div>
-  <div class="logos-area">
-    <img src="../assets/desktop/spotify.svg" alt="spotify logo" />
-    <img src="../assets/desktop/apple-podcast.svg" alt="apple logo" />
-    <img src="../assets/desktop/google-podcasts.svg" alt="google logo" />
-    <img src="../assets/desktop/pocket-casts.svg" alt=" logo" />
-  </div>
-  <div class="input-area">
-    <input type="email" [(ngModel)]="mail" placeholder="Email address" />
-    <button>Request access</button>
+  <div class="content">
+    <div class="text-area">
+      <h1>Publish your podcasts <span>everywhere.</span></h1>
+      <p>
+        Upload your audio to Pod with a single click. We’ll then distribute your
+        podcast to Spotify, Apple Podcasts, Google Podcasts, Pocket Casts and
+        more!
+      </p>
+    </div>
+    <div class="logos-area">
+      <img src="../assets/desktop/spotify.svg" alt="spotify logo" />
+      <img src="../assets/desktop/apple-podcast.svg" alt="apple logo" />
+      <img src="../assets/desktop/google-podcasts.svg" alt="google logo" />
+      <img src="../assets/desktop/pocket-casts.svg" alt=" logo" />
+    </div>
+    <div class="input-area">
+      <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <label [class.error]="form.invalid && form.touched" for="email">
+          <input
+            type="email"
+            placeholder="Email address"
+            data-testid="email-input"
+            id="email"
+            name="email"
+            required
+            email
+            ngModel
+            #email="ngModel"
+          />
+          <button type="submit" data-testid="submit-btn">Request access</button>
+        </label>
+        <span
+          *ngIf="form.invalid && form.touched"
+          class="error-area"
+          data-testid="error-message"
+          >Oops! Please check your email</span
+        >
+      </form>
+    </div>
   </div>
 </main>
